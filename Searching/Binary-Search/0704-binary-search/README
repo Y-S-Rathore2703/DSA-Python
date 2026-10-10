@@ -1,46 +1,102 @@
-## 📝 Problem Statement
+# 🔎 704 — Binary Search
 
-Given a sorted array of distinct integers `nums` and an integer `target`, return the index of `target` if it exists in the array. Otherwise, return `-1`.
+<div align="center">
 
-The goal is to find the target efficiently using Binary Search.
+![LeetCode](https://img.shields.io/badge/LeetCode-704-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-00AF9C?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-## 🧪 Examples
+**SEARCH SMARTER. NOT HARDER.**
 
-**Example 1**
+*A classic divide-and-conquer algorithm that finds a target in a sorted array.*
 
-Input:
+[**View Problem ↗**](https://leetcode.com/problems/binary-search/) · [**My Solution →**](solution.py)
+
+</div>
+
+---
+
+## 🎯 The Challenge
+
+Given a sorted array of distinct integers `nums` and an integer `target`, return the index of the target if it exists. Otherwise, return `-1`.
+
+**The mission:** Find the target efficiently without checking every element one by one.
+
+## 🧪 Test Cases
+
+### Example 01 — Target Found ✅
+
 ```python
 nums = [-1, 0, 3, 5, 9, 12]
 target = 9
+
+# Output: 4
 ```
 
-Output:
-```python
-4
-```
+The target `9` is at index `4` (zero-based indexing).
 
-Explanation: The target `9` is located at index `4`.
+### Example 02 — Target Missing ❌
 
-**Example 2**
-
-Input:
 ```python
 nums = [-1, 0, 3, 5, 9, 12]
 target = 2
+
+# Output: -1
 ```
 
-Output:
-```python
--1
-```
+The target does not exist in the array.
 
-Explanation: The target `2` does not exist in the array.
+## 🧠 The Approach
 
-## 📏 Key Constraints
+**Binary Search — Divide and Conquer**
 
-- The array is sorted in ascending order.
-- All elements in the array are distinct.
-- The solution must return an index, not the target value itself.
-- Return `-1` if the target is not found.
+Instead of searching the entire array, repeatedly cut the search range in half.
 
-🔗 [View the original problem on LeetCode](https://leetcode.com/problems/binary-search/)
+1. Initialize `left` at the first index and `right` at the last.
+2. Calculate the middle index.
+3. If the middle element equals the target, return its index.
+4. If the target is greater, eliminate the left half.
+5. If the target is smaller, eliminate the right half.
+6. If `left` exceeds `right`, the target was not found.
+
+### 🔬 Quick Walkthrough
+
+For `nums = [-1, 0, 3, 5, 9, 12]`, with `target = 9`:
+
+| Step | Middle element | Decision |
+|---|---:|---|
+| 1 | `3` | Search right half |
+| 2 | `9` | Target found at index `4` |
+
+*Each comparison eliminates roughly half of the remaining search space.*
+
+## ⚙️ Complexity Analysis
+
+| Metric | Complexity |
+|---|---|
+| Time | `O(log n)` |
+| Extra space | `O(1)` |
+
+**Why?** The search interval is halved after every unsuccessful comparison, and the iterative implementation uses only a constant amount of extra memory.
+
+## 💻 Implementation
+
+The complete Python implementation is available here:
+
+### [`solution.py` →](solution.py)
+
+## 💡 Key Takeaway
+
+Binary Search is powerful because it uses the sorted order of the array to eliminate unnecessary comparisons.
+
+**Prerequisite:** The array must be sorted in ascending order.
+
+---
+
+<div align="center">
+
+**UNDERSTAND THE LOGIC. MASTER THE PATTERN.** ⚡
+
+*One problem at a time.*
+
+</div>
