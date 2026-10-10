@@ -2,32 +2,18 @@
 
 **Difficulty:** Easy | **Language:** Python
 
-[Problem Link](https://leetcode.com/problems/binary-search/) · [My Solution](solution.py)
+[Problem](https://leetcode.com/problems/binary-search/) · [My Solution](solution.py)
 
 ## Problem
 Given a sorted array `nums` and a `target`, return its index if found; otherwise, return `-1`.
 
 ## Examples
-
-```python
-nums = [-1, 0, 3, 5, 9, 12]
-target = 9
-# Output: 4
-```
-
-```python
-nums = [-1, 0, 3, 5, 9, 12]
-target = 2
-# Output: -1
-```
+- `nums = [-1, 0, 3, 5, 9, 12]`, `target = 9` → `4`
+- `nums = [-1, 0, 3, 5, 9, 12]`, `target = 2` → `-1`
 
 ## Approach
-Use Binary Search to repeatedly divide the sorted array in half until the target is found or the search range is empty.
+Repeatedly divide the sorted array in half until the target is found or the search range is empty.
 
 ## Complexity
 - **Time:** `O(log n)`
 - **Space:** `O(1)`
-
----
-
-*One problem at a time. ⚡*
